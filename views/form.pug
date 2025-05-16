@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    title Student CRUD
+  body
+    h1 Student CRUD Form
+
+    form(action="/student/form-action", method="POST")
+      label(for="id") ID:
+      input(type="text", name="id")
+      br
+      br
+
+      label(for="name") Name:
+      input(type="text", name="name")
+      br
+      br
+
+      label(for="age") Age:
+      input(type="number", name="age")
+      br
+      br
+
+      label(for="city") City:
+      input(type="text", name="city")
+      br
+      br
+
+      label(for="department") Department:
+      input(type="text", name="department")
+      br
+      br
+
+      button(type="submit", name="action", value="create") Create
+      button(type="submit", name="action", value="read") Read
+      button(type="submit", name="action", value="update") Update
+      button(type="submit", name="action", value="delete") Delete
+      button(type="submit", name="action", value="getAll") GetAllData
+
+    if student
+      h2 Result:
+      ul
+        li Name: #{student.name}
+        li Age: #{student.age}
+        li City: #{student.city}
+        li Department: #{student.department}
+
+    if message
+      p(style="color: green") #{message}
+
+    if error
+      p(style="color: red") Error: #{error}

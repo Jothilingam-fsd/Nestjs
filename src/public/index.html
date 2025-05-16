@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student List</title>
+</head>
+<body>
+  <h1>Student List</h1>
+  <ul id="studentList"></ul>
+
+  <script>
+    fetch('http://localhost:4000/student')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('studentList');
+        data.forEach(student => {
+          const li = document.createElement('li');
+          li.textContent = `${student.name} - ${student.age} - ${student.city} - ${student.department}`;
+          list.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
